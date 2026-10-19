@@ -62,6 +62,7 @@ This is a demonstration model and does not represent every possible memory fault
 ## Simulation Waveforms
 
 <img width="2418" height="1366" alt="image" src="https://github.com/user-attachments/assets/fc42b232-2240-4513-aa4b-2db06bf16137" />
+<img width="1912" height="340" alt="image" src="https://github.com/user-attachments/assets/c16efde0-7a74-4a5b-ab8f-e92ac948b3dd" />
 
 ## Limitations and Future Work
 
