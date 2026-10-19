@@ -68,9 +68,3 @@ This is a demonstration model and does not represent every possible memory fault
 - The current fault model covers only a limited fault scenario.
 - The RAM model should be adapted and verified for the target FPGA family and memory configuration.
 - Future improvements may include additional March algorithms, more fault models, fault diagnosis, and FPGA synthesis/resource validation.
-
-## Author
-
-ANISH SAMAL  
-B.Tech, Electronics and Communication Engineering  
-National Institute of Technology Rourkela
