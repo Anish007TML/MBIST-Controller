@@ -61,17 +61,7 @@ This is a demonstration model and does not represent every possible memory fault
 
 ## Simulation Waveforms
 
-Save screenshots of your Vivado simulation waveforms in the `docs/` folder.
-
-### Fault-Free Memory Test
-
-![Fault-free MBIST waveform](docs/mbist_pass_waveform.png)
-
-### Fault-Injection Test
-
-![Fault-injected MBIST waveform](docs/mbist_fault_waveform.png)
-
-Replace these image paths or filenames if your screenshots are saved under different names.
+<img width="2418" height="1366" alt="image" src="https://github.com/user-attachments/assets/fc42b232-2240-4513-aa4b-2db06bf16137" />
 
 ## Limitations and Future Work
 
