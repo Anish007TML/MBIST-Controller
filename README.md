@@ -28,20 +28,59 @@ The controller performs a March C−-style sequence over the memory address rang
 
 The controller asserts `done` when the test completes. A mismatch between the expected and observed read data sets the `fail` flag.
 
-## Repository Contents
+## Tools and Requirements
 
-Expected source layout:
+- Xilinx Vivado
+- Verilog HDL
+- Vivado behavioral simulator (XSim)
 
-```text
-fpga-mbist/
-├── README.md
-├── .gitignore
-├── rtl/
-│   ├── mbist_ram.v
-│   ├── mbist_controller.v
-│   └── mbist_top.v
-├── sim/
-│   └── tb_mbist.v
-└── docs/
-    ├── mbist_pass_waveform.png
-    └── mbist_fault_waveform.png
+## How to Run in Vivado
+
+1. Open Xilinx Vivado and create a new RTL project.
+2. Add `mbist_ram.v`, `mbist_controller.v`, and `mbist_top.v` as Design Sources.
+3. Add `tb_mbist.v` as a Simulation Source.
+4. Set `tb_mbist` as the simulation top module.
+5. Select **Run Simulation → Run Behavioral Simulation**.
+6. Run the testbench until the MBIST test completes.
+7. Add the relevant signals to the waveform window and inspect the controller state, RAM address, read/write controls, and data signals.
+
+## Expected Simulation Results
+
+The testbench evaluates two memory instances:
+
+- **Fault-free memory:** The MBIST test should complete with `done = 1` and `fail = 0`.
+- **Fault-injected memory:** The MBIST test should detect the injected fault and complete with `done = 1` and `fail = 1`.
+
+The `done` signal may be a one-cycle pulse. Check the RTL and testbench timing when interpreting the results.
+
+## Fault Model
+
+The testbench includes a simple memory fault-injection mechanism to demonstrate MBIST fault detection. For example, a selected memory location may be modified so that a written bit does not retain its expected value.
+
+This is a demonstration model and does not represent every possible memory fault, such as all stuck-at, transition, coupling, or address-decoder faults. The RAM model and timing must be validated for the target FPGA memory architecture before hardware deployment.
+
+## Simulation Waveforms
+
+Save screenshots of your Vivado simulation waveforms in the `docs/` folder.
+
+### Fault-Free Memory Test
+
+![Fault-free MBIST waveform](docs/mbist_pass_waveform.png)
+
+### Fault-Injection Test
+
+![Fault-injected MBIST waveform](docs/mbist_fault_waveform.png)
+
+Replace these image paths or filenames if your screenshots are saved under different names.
+
+## Limitations and Future Work
+
+- The current fault model covers only a limited fault scenario.
+- The RAM model should be adapted and verified for the target FPGA family and memory configuration.
+- Future improvements may include additional March algorithms, more fault models, fault diagnosis, and FPGA synthesis/resource validation.
+
+## Author
+
+ANISH SAMAL  
+B.Tech, Electronics and Communication Engineering  
+National Institute of Technology Rourkela
